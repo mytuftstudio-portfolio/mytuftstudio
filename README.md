@@ -1,6 +1,3 @@
-# mytuftstudio
-Mein selbst programmiertes Online-Schaufenster für mytuftstudio.
-
 # mytuftstudio - Interaktives Portfolio & Storefront
 
 Willkommen in meinem Repository! Hier liegt der Quellcode für mein selbst programmiertes, unabhängiges Online-Schaufenster. Da meine bisherigen Plattform-Shops geschlossen wurden, habe ich meine Programmierkenntnisse genutzt, um mir eine eigene, sichere Storefront aufzubauen.

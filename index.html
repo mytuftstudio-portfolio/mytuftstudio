@@ -3,80 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mytuftstudio | Portfolio & Shop</title>
+    <title>mytuftstudio | Handmade Rugs, Nails &  Art </title>
     <style>
-        /* Das Design: Ein cooler Cyber-Look in Dunkelblau, Rot und Gold */
+        /* 1. Hintergrund: Dein wunderschöner Rosa-Orange Farbverlauf */
         body { 
-            background-color: #0d1b2a; 
-            color: #f5cad1; 
-            font-family: sans-serif; 
+            background: linear-gradient(135deg, #ff4e7e 0%, #ff9e6d 100%);
+            color: #4a4a4a; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
             text-align: center; 
             margin: 0;
             padding: 20px;
+            min-height: 100vh;
         }
-        h1 { color: #dfb15b; margin-top: 40px; }
+
+        /* Logo-Bereich oben */
+        .logo-circle {
+            background: linear-gradient(135deg, #e75c1e 0%, #b21217 100%);
+            color: white;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            border: 3px solid white;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .logo-circle h2 { margin: 0; font-size: 16px; font-weight: normal; }
+        .logo-circle h1 { margin: 0; font-size: 26px; font-family: Georgia, serif; }
+
+        p.subtitle {
+            color: white;
+            font-size: 18px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* 2. Shop-Karten: Weiße, abgerundete Boxen wie auf deinen Flyern */
         .shop-container { 
             display: flex; 
             justify-content: center; 
             flex-wrap: wrap;
-            gap: 30px; 
-            margin-top: 50px; 
+            gap: 25px; 
+            max-width: 1000px;
+            margin: 0 auto;
         }
         .product-card { 
-            background: #1e3f20; 
-            padding: 25px; 
-            border-radius: 16px; 
-            border: 2px solid #dfb15b; 
+            background: rgba(255, 255, 255, 0.92); 
+            padding: 30px; 
+            border-radius: 24px; 
             width: 280px; 
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.5);
         }
+        .product-card h3 {
+            color: #b21217;
+            font-size: 22px;
+            margin-top: 0;
+        }
+        .price-tag {
+            font-size: 20px;
+            color: #e75c1e;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* 3. Knöpfe: Matt-Rote Buttons */
         .btn-buy { 
-            background-color: #b21217; 
+            background: #b21217; 
             color: white; 
             border: none; 
-            padding: 12px 24px; 
-            border-radius: 8px; 
+            padding: 12px 28px; 
+            border-radius: 50px; 
             cursor: pointer; 
             text-decoration: none; 
             display: inline-block; 
             font-weight: bold;
-            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(178,18,23,0.3);
+        }
+        .btn-buy:hover {
+            background: #e75c1e;
         }
     </style>
 </head>
 <body>
 
-    <h1>mytuftstudio</h1>
-    <p>Handgemachte Kunstteppiche & Kreativer Code direkt aus Berlin</p>
+    <!-- Dein rundes Logo vom Plakat nachgebaut -->
+    <div class="logo-circle">
+        <h2>mytuftstudio</h2>
+        <h1>Berlin</h1>
+    </div>
+    <p class="subtitle">Individuelle Handmade Press-On Nails & Kunstteppiche</p>
     
+    <!-- Hier werden deine Produkte angezeigt -->
     <div class="shop-container" id="shop"></div>
 
     <script>
-        // Deine Produkt-Liste (Genauso aufgebaut wie deine Godot-Arrays!)
+        // Deine Produkt-Liste (Kannst du beliebig erweitern!)
         const produkte = [
             {
-                name: "Handmade Kunstteppich",
-                preis: "Auf Anfrage",
-                beschreibung: "Einzigartiger, mit Liebe handgetufteter Teppich für dein Setup.",
-                kofiUrl: "https://ko-fi.com" // Hier kommt später dein Ko-fi Link hin
+                name: "Sizing Kit (Kostenlos)",
+                preis: "0,00 €",
+                beschreibung: "Finde deine perfekte Größe (XS bis L). Inklusive 5€ Gutschein für deine ersten Wunsch-Nägel!",
+                kofiUrl: "https://ko-fi.com" 
             },
             {
-                name: "Godot Game Template",
-                preis: "4,99 €",
-                beschreibung: "Der komplette, saubere Code für dein eigenes 3D-Abenteuer.",
-                kofiUrl: "https://ko-fi.com" // Hier kommt später dein Ko-fi Link hin
+                name: "Custom Press-On Nails",
+                preis: "Auf Anfrage",
+                beschreibung: "Handgemachte, langlebige Nägel nach deinen Wunsch-Maßen gefertigt.",
+                kofiUrl: "https://ko-fi.com" 
+            },
+            {
+                name: "Handmade Kunstteppich",
+                preis: "Individuell",
+                beschreibung: "Exklusive, handgetuftete Teppich-Kunstwerke für dein Zuhause.",
+                kofiUrl: "https://ko-fi.com" 
             }
         ];
 
-        // Die Code-Schleife baut die Kärtchen automatisch auf die Webseite
+        // Die Schleife baut die Kärtchen automatisch auf die Webseite
         const shopContainer = document.getElementById('shop');
         produkte.forEach(p => {
             shopContainer.innerHTML += `
                 <div class="product-card">
                     <h3>${p.name}</h3>
                     <p>${p.beschreibung}</p>
-                    <p><strong>${p.preis}</strong></p>
-                    <a href="${p.kofiUrl}" target="_blank" class="btn-buy">Auf Ko-fi ansehen ➔</a>
+                    <div class="price-tag">${p.preis}</div>
+                    <a href="${p.kofiUrl}" target="_blank" class="btn-buy">Auf Ko-fi bestellen ➔</a>
                 </div>
             `;
         });

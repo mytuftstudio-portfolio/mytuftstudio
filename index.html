@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTuftStudio | Portfolio & Shop</title>
+    <style>
+        /* Das Design: Ein cooler Cyber-Look in Dunkelblau, Rot und Gold */
+        body { 
+            background-color: #0d1b2a; 
+            color: #f5cad1; 
+            font-family: sans-serif; 
+            text-align: center; 
+            margin: 0;
+            padding: 20px;
+        }
+        h1 { color: #dfb15b; margin-top: 40px; }
+        .shop-container { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap;
+            gap: 30px; 
+            margin-top: 50px; 
+        }
+        .product-card { 
+            background: #1e3f20; 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 2px solid #dfb15b; 
+            width: 280px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        .btn-buy { 
+            background-color: #b21217; 
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔮 MyTuftStudio</h1>
+    <p>Handgemachte Kunstteppiche & Kreativer Code direkt aus Berlin</p>
+    
+    <div class="shop-container" id="shop"></div>
+
+    <script>
+        // Deine Produkt-Liste (Genauso aufgebaut wie deine Godot-Arrays!)
+        const produkte = [
+            {
+                name: "Handmade Kunstteppich",
+                preis: "Auf Anfrage",
+                beschreibung: "Einzigartiger, mit Liebe handgetufteter Teppich für dein Setup.",
+                kofiUrl: "https://ko-fi.com" // Hier kommt später dein Ko-fi Link hin
+            },
+            {
+                name: "Godot Game Template",
+                preis: "4,99 €",
+                beschreibung: "Der komplette, saubere Code für dein eigenes 3D-Abenteuer.",
+                kofiUrl: "https://ko-fi.com" // Hier kommt später dein Ko-fi Link hin
+            }
+        ];
+
+        // Die Code-Schleife baut die Kärtchen automatisch auf die Webseite
+        const shopContainer = document.getElementById('shop');
+        produkte.forEach(p => {
+            shopContainer.innerHTML += `
+                <div class="product-card">
+                    <h3>${p.name}</h3>
+                    <p>${p.beschreibung}</p>
+                    <p><strong>${p.preis}</strong></p>
+                    <a href="${p.kofiUrl}" target="_blank" class="btn-buy">Auf Ko-fi ansehen ➔</a>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
